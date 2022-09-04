@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.9'
 
 services:
   web:
@@ -13,13 +13,20 @@ services:
     depends_on:
       - db
   db:
-    image: postgres:13.0-alpine
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
+    image: postgres:13.3-alpine
     environment:
-      - POSTGRES_USER=django_user
-      - POSTGRES_PASSWORD=django_password
-      - POSTGRES_DB=django_db
-
-volumes:
-  postgres_data:
+#      - POSTGRES_USER=django_user
+#      - POSTGRES_PASSWORD=django_password
+#      - POSTGRES_DB=django_db
+      POSTGRES_DB: "django_db"
+      POSTGRES_USER: "django_user"
+      POSTGRES_PASSWORD: "django_password"
+#      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+#      - postgres_data:/var/lib/postgresql/data/
+#      - postgres_data:/var/lib/postgresql/data/
+      - .:/var/lib/postgresql/data2
+#    ports:
+#      - "5432:5432"
+#volumes:
+#  postgres_data:
