@@ -1,7 +1,0 @@
-sudo docker-compose up -d
-docker volume prune // Удаление volume
-docker run -e POSTGRES_USER=django_user -e POSTGRES_PASSWORD=django_password -e POSTGRES_DB=django_db library/postgres
-docker run --name nginx_django_postgres_data -p 5432:5432 -e POSTGRES_USER=django_user -e POSTGRES_PASSWORD=django_password -e POSTGRES_DB=django_db -d postgres:13.0-alpine
-docker run --name nginx_django_postgres_data -p 5432:5432 -e POSTGRES_USER=django_user -e POSTGRES_PASSWORD=django_password -e POSTGRES_DB=django_db -d -v "$(pwd)":/docker-entrypoint-initdb.d postgres:13.0-alpine
-
-docker run --name nginx_django_postgres_data -p 5432:5432 -e POSTGRES_USER=django_user -e POSTGRES_PASSWORD=django_password -e POSTGRES_DB=django_db -e PGDATA=/var/lib/postgresql/data/pgdata -d -v "$(pwd)":/var/lib/postgresql/data -v "$(pwd)/../2. Init Database":/docker-entrypoint-initdb.d postgres:13.0-alpine

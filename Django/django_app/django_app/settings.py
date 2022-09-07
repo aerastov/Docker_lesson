@@ -28,13 +28,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 ######################################################################################
-# SECRET_KEY = 'django-insecure-p(u*ndw$l=%1z+4vyy4m9yc016=f0vp06k$q6v6r194&3ajbm$'
-SECRET_KEY = environ.get('SECRET_KEY')
-
-DEBUG = int(environ.get('DEBUG', default=0))
-
-ALLOWED_HOSTS = environ.get('ALLOWED_HOSTS').split(' ')
+SECRET_KEY = 'django-insecure-p(u*ndw$l=%1z+4vyy4m9yc016=f0vp06k$q6v6r194&3ajbm$'
+# SECRET_KEY = environ.get('SECRET_KEY')
+#
+# DEBUG = int(environ.get('DEBUG', default=0))
+#
+# ALLOWED_HOSTS = environ.get('ALLOWED_HOSTS').split(' ')
 ######################################################################################
+
+DEBUG=1
+ALLOWED_HOSTS = ['*']
+
 
 
 
@@ -81,12 +85,18 @@ WSGI_APPLICATION = 'django_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': environ.get('POSTGRES_ENGINE', 'django.db.backends.sqlite3'),
-        'NAME': environ.get('POSTGRES_DB', BASE_DIR / 'db.sqlite3'),
-        'USER': environ.get('POSTGRES_USER', 'user'),
-        'PASSWORD': environ.get('POSTGRES_PASSWORD', 'password'),
-        'HOST': environ.get('POSTGRES_HOST', 'localhost'),
-        'PORT': environ.get('POSTGRES_PORT', '5432'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_db',
+        'USER': 'django_user',
+        'PASSWORD': 'django_password',
+        'HOST': 'localhost',
+        'PORT': '',
+        # 'ENGINE': environ.get('POSTGRES_ENGINE', 'django.db.backends.sqlite3'),
+        # 'NAME': environ.get('POSTGRES_DB', BASE_DIR / 'db.sqlite3'),
+        # 'USER': environ.get('POSTGRES_USER', 'user'),
+        # 'PASSWORD': environ.get('POSTGRES_PASSWORD', 'password'),
+        # 'HOST': environ.get('POSTGRES_HOST', 'localhost'),
+        # 'PORT': environ.get('POSTGRES_PORT', '5432'),
     }
 }
 
