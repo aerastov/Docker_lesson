@@ -1,5 +1,5 @@
-docker build -t django . //построить образ
-docker run -d -p 80:80 -v /data:/data:rw django //старт контейнера
-
-
+//создать образ
+docker build -t my_django_name .
+//старт контейнера
+docker run -d -p 8000:8000 my_django_name
  
