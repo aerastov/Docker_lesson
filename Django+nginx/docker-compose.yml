@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+
+  web:
+    build: ./NewProject
+    image: django_name
+    container_name: django
+    restart: on-failure
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./NewProject/:/usr/src/app/
+    expose:
+      - 8000
+
+  nginx:
+    build: ./nginx
+    image: nginx_name
+    container_name: nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - web

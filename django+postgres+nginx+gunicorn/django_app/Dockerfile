@@ -22,6 +22,7 @@ RUN sed -i 's/\r$//g' /usr/src/app/entrypoint.sh
 RUN chmod +x /usr/src/app/entrypoint.sh
 RUN mkdir /usr/src/app/static
 RUN mkdir /usr/src/app/media
+
 # copy project
 COPY . .
 
