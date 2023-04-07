@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+
+  web:
+    build: ./NewProject
+    image: django_name
+    container_name: django
+    restart: on-failure
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./NewProject/:/usr/src/app/
+    expose:
+      - 8000
+
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - /etc/ssl/CERT_NAME.ru.crt:/etc/ssl/certs/CERT_NAME.ru.crt
+      - /etc/ssl/CERT_NAME.ru.key:/etc/ssl/certs/CERT_NAME.ru.key
+    depends_on:
+      - web
