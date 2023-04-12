@@ -23,5 +23,6 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
       - /etc/ssl/CERT_NAME.ru.crt:/etc/ssl/certs/CERT_NAME.ru.crt
       - /etc/ssl/CERT_NAME.ru.key:/etc/ssl/certs/CERT_NAME.ru.key
+      - ./NewProject/static:/usr/src/app/static/
     depends_on:
       - web
