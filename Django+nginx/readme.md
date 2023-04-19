@@ -4,4 +4,4 @@
 
 Автор проекта: **Ерастов Алексей Сергеевич**  
 e-mail: a.erastov@gmail.com
-Wokingham, 2023г.
+London, 2023г.
